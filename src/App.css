@@ -1,4 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
+
 body {
+  font-family: "Pixelify Sans", sans-serif;
   background-color: #FDE49E;
 }
 :root {
@@ -155,11 +158,16 @@ button:active {
 }
 .estadisticas {
   width: 150px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
   margin: 5px;
-  flex: 1;
+}
+.estadistica {
+  display: flex;
+}
+.estadistica__separador {
+  word-spacing: 5px;
+  font-size: 60px;
+  flex: 1 1 auto;
+  border-bottom: 1px dotted black;
 }
 .tipo {
   color: rgba(0, 0, 0, 0.9);
@@ -186,7 +194,10 @@ button:active {
     background-blend-mode: hard-light;
 }
 .tipo__titulo {
-  text-transform: capitalize;
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+    margin: 0px;
+    text-transform: capitalize;
     font-size: 18px;
     padding: 5px;
     letter-spacing: 2px;
@@ -201,6 +212,5 @@ button:active {
 .tipo__lista {
   display: flex;
   flex-direction: column;
-  border-left: groove #757575 3px;
   flex: 1;
 }

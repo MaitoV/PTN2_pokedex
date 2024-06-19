@@ -3,13 +3,13 @@ import BotonesSprite from './BotonesSprite';
 import PokemonDescripcion from './PokemonDescripcion';
 import PokemonNombre from './PokemonNombre';
 
-function PanelIzquierdo() {
+function PanelIzquierdo({pokemon}) {
+  console.log(pokemon);
     return(
         <section className="panel">
-        <PokemonNombre />
-        <img alt="pokemon" src="" className="pokemon__sprite"></img>
+        <PokemonNombre pokemonNombre={pokemon.name} pokemonID={pokemon.id} />
+        <img alt={pokemon.name.toString()} src={pokemon.sprites.front_default} className="pokemon__sprite"></img>
         <BotonesSprite />
-        <div className="pantalla"></div>
         <PokemonDescripcion />
       </section>
     )

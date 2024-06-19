@@ -1,15 +1,30 @@
 import React from 'react';
 
-function PanelDerecho() {
+function PanelDerecho({pokemon}) {
+  const estadisticas = pokemon.stats;
+  const tipos = pokemon.types;
     return(
         <section className="panel">
           <div className="panel__fila">
-            <div className='pantalla estadisticas'></div>
+            <div className='pantalla estadisticas'>
+              {
+                estadisticas.map((estaditisca) =>
+                  <div key={estaditisca.stat.name} className='estadistica'>
+                    <span>{estaditisca.stat.name}</span>
+                    <span className='estadistica__separador'></span>
+                    <span>{estaditisca.base_stat}</span>
+                  </div>
+                )
+              }
+            </div>
             <div className='tipo'>
                 <h2 className='tipo__titulo'>Tipos</h2>
                 <div className='tipo__lista'>
-                  <p>Agua</p>
-                  <p>Veneno</p>
+                  {
+                    tipos.map((tipo) => 
+                      <p className='tipo' key={tipo.type.name}>{tipo.type.name}</p>
+                    )
+                  }
                 </div>
             </div>
           </div>
