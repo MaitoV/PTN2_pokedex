@@ -1,8 +1,8 @@
 import React from 'react';
 
 function PanelDerecho({pokemon}) {
-  const estadisticas = pokemon.stats;
-  const tipos = pokemon.types;
+  const estadisticas = pokemon.estadisticas;
+  const tipos = pokemon.tipos;
     return(
         <section className="panel">
           <div className="panel__fila">

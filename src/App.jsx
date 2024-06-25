@@ -18,7 +18,8 @@ function App() {
         const randomID = Math.floor(Math.random() * 898) + 1;
         let respuesta = await axios.get(`https://pokeapi.co/api/v2/pokemon/${randomID}`);
         respuesta = respuesta.data;
-        setPokemon(respuesta);
+        let pokemon = {id: respuesta.id, nombre: respuesta.name, sprites: respuesta.sprites, tipos: respuesta.types, estadisticas: respuesta.stats} 
+        setPokemon(pokemon);
 
         const obtenerEspecies = await axios.get(respuesta.species.url);
         const especiesData = obtenerEspecies.data;
@@ -36,6 +37,7 @@ function App() {
 
     fetchPokemon();
   }, []);
+
   if (loading) {
     return <p>Loading...</p>; 
   }
@@ -43,10 +45,15 @@ function App() {
   if (error) {
     return <p>Error al cargar el Pokémon. Por favor, intenta de nuevo.</p>;
   }
+
+  const handlerShiny = () => {
+    setEsShiny(!esShiny);
+  };
+
   return (
     <div className="pokedex">
 
-      <PanelIzquierdo pokemon={pokemon} descripcion={descripcion} />
+      <PanelIzquierdo pokemon={pokemon} descripcion={descripcion} handlerShiny={handlerShiny} esShiny={esShiny}/>
       <Divisor />
       <PanelDerecho pokemon={pokemon} />
 
