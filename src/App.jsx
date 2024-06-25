@@ -9,6 +9,7 @@ function App() {
   const [pokemon, setPokemon] = useState(null);
   const [descripcion, setDescripcion] = useState('');
   const [esShiny, setEsShiny] = useState(false);
+  const [spriteEspalda, setSpriteEspalda] = useState(false);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -50,10 +51,19 @@ function App() {
     setEsShiny(!esShiny);
   };
 
+  const handlerSprite = () => {
+    setSpriteEspalda(!spriteEspalda);
+  }
+
   return (
     <div className="pokedex">
 
-      <PanelIzquierdo pokemon={pokemon} descripcion={descripcion} handlerShiny={handlerShiny} esShiny={esShiny}/>
+      <PanelIzquierdo pokemon={pokemon} 
+                      descripcion={descripcion} 
+                      handlerShiny={handlerShiny} 
+                      esShiny={esShiny} 
+                      handlerSprite={handlerSprite} 
+                      spriteEspalda={spriteEspalda} />
       <Divisor />
       <PanelDerecho pokemon={pokemon} />
 
