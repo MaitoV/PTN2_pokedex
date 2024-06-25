@@ -7,6 +7,8 @@ import axios from 'axios';
 
 function App() {
   const [pokemon, setPokemon] = useState(null);
+  const [descripcion, setDescripcion] = useState('');
+  const [esShiny, setEsShiny] = useState(false);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -14,8 +16,16 @@ function App() {
     const fetchPokemon = async () => {
       try {
         const randomID = Math.floor(Math.random() * 898) + 1;
-        const respuesta = await axios.get(`https://pokeapi.co/api/v2/pokemon/${randomID}`);
-        setPokemon(respuesta.data);
+        let respuesta = await axios.get(`https://pokeapi.co/api/v2/pokemon/${randomID}`);
+        respuesta = respuesta.data;
+        setPokemon(respuesta);
+
+        const obtenerEspecies = await axios.get(respuesta.species.url);
+        const especiesData = obtenerEspecies.data;
+        const textoDescripcion = especiesData.flavor_text_entries.find(entry => entry.language.name === 'es');
+        const descripcionFormateada = textoDescripcion.flavor_text;
+        setDescripcion(descripcionFormateada);
+
       } catch (error) {
         console.error("Error al obtener un pokemon", error);
         setError(error);
@@ -36,7 +46,7 @@ function App() {
   return (
     <div className="pokedex">
 
-      <PanelIzquierdo pokemon={pokemon} />
+      <PanelIzquierdo pokemon={pokemon} descripcion={descripcion} />
       <Divisor />
       <PanelDerecho pokemon={pokemon} />
 

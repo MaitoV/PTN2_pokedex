@@ -1,7 +1,8 @@
-function PokemonDescripcion() {
+function PokemonDescripcion({nombre, descripcion}) {
+    console.log(nombre, descripcion)
     return(
         <div className="pantalla pokemon__descripcion">
-            Descripcion - Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error iste commodi ratione, suscipit aut officiis sit accusamus sint veniam maxime. Quibusdam, laborum necessitatibus eligendi dicta ipsa accusamus quasi repellat temporibus!
+            <p><span className="descripcion--darker">{nombre} </span> - {descripcion} </p>
         </div>
     )
 }
