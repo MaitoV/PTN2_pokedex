@@ -28,6 +28,8 @@ function App() {
         const descripcionFormateada = textoDescripcion.flavor_text;
         setDescripcion(descripcionFormateada);
 
+        //TODO: TERMINAR LAS EVOLUCIONES ACA
+
       } catch (error) {
         console.error("Error al obtener un pokemon", error);
         setError(error);
