@@ -1,8 +1,15 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import BotonNavigate from './BotonNavigate';
 
-function PanelDerecho({pokemon}) {
+function PanelDerecho({pokemon, handlerNavigate}) {
   const estadisticas = pokemon.estadisticas;
   const tipos = pokemon.tipos;
+  const navigate = useNavigate();
+
+  const goToEntrenadores = () => {
+    navigate('/entrenadores');
+  };
     return(
         <section className="panel">
           <div className="panel__fila">
@@ -46,6 +53,11 @@ function PanelDerecho({pokemon}) {
             </div>
           </div>
           <div className="panel__fila"></div>
+          <div className="panel__fila">
+          <BotonNavigate 
+        handlerNavigate={handlerNavigate}/>
+      </div>
+
       </section>
     )
 }

@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
+import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
 import Divisor from './components/Divisor';
 import PanelIzquierdo from './components/PanelIzq';
 import PanelDerecho from './components/PanelDerecho';
 import axios from 'axios';
+import Entrenadores from './components/Entrenadores';
 
 function App() {
   const [pokemon, setPokemon] = useState(null);
@@ -12,32 +14,34 @@ function App() {
   const [spriteEspalda, setSpriteEspalda] = useState(false);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [pokemonID, setPokemonID] = useState(1);
+  const navigate = useNavigate();
+
+  const fetchPokemon = async (id) => {
+    try {
+      setLoading(true);
+      setError(null);
+      const respuesta = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`);
+      const data = respuesta.data;
+      const pokemon = { id: data.id, nombre: data.name, sprites: data.sprites, tipos: data.types, estadisticas: data.stats };
+      setPokemon(pokemon);
+
+      const obtenerEspecies = await axios.get(data.species.url);
+      const especiesData = obtenerEspecies.data;
+      const textoDescripcion = especiesData.flavor_text_entries.find(entry => entry.language.name === 'es');
+      const descripcionFormateada = textoDescripcion ? textoDescripcion.flavor_text : 'Descripción no disponible.';
+      setDescripcion(descripcionFormateada);
+    } catch (error) {
+      console.error("Error al obtener un pokemon", error);
+      setError(error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
-    const fetchPokemon = async () => {
-      try {
-        const randomID = Math.floor(Math.random() * 898) + 1;
-        let respuesta = await axios.get(`https://pokeapi.co/api/v2/pokemon/${randomID}`);
-        respuesta = respuesta.data;
-        let pokemon = {id: respuesta.id, nombre: respuesta.name, sprites: respuesta.sprites, tipos: respuesta.types, estadisticas: respuesta.stats} 
-        setPokemon(pokemon);
-
-        const obtenerEspecies = await axios.get(respuesta.species.url);
-        const especiesData = obtenerEspecies.data;
-        const textoDescripcion = especiesData.flavor_text_entries.find(entry => entry.language.name === 'es');
-        const descripcionFormateada = textoDescripcion.flavor_text;
-        setDescripcion(descripcionFormateada);
-
-      } catch (error) {
-        console.error("Error al obtener un pokemon", error);
-        setError(error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchPokemon();
-  }, []);
+    fetchPokemon(pokemonID);
+  }, [pokemonID]);
 
   if (loading) {
     return <p>Loading...</p>; 
@@ -53,22 +57,58 @@ function App() {
 
   const handlerSprite = () => {
     setSpriteEspalda(!spriteEspalda);
-  }
+  };
+
+  const handlerNextPokemon = () => {
+    setPokemonID((prevID) => (prevID === 898 ? 1 : prevID + 1));
+  };
+
+  const handlerPreviousPokemon = () => {
+    setPokemonID((prevID) => (prevID === 1 ? 898 : prevID - 1));
+  };
+
+  const handlerNavigate = () => {
+    navigate('/entrenadores');
+  };
 
   return (
-    <div className="pokedex">
-
-      <PanelIzquierdo pokemon={pokemon} 
-                      descripcion={descripcion} 
-                      handlerShiny={handlerShiny} 
-                      esShiny={esShiny} 
-                      handlerSprite={handlerSprite} 
-                      spriteEspalda={spriteEspalda} />
-      <Divisor />
-      <PanelDerecho pokemon={pokemon} />
-
-    </div>
+    <Routes>
+      <Route path="/" element={
+        <div className="pokedex">
+          <PanelIzquierdo 
+            pokemon={pokemon} 
+            descripcion={descripcion} 
+            handlerShiny={handlerShiny} 
+            esShiny={esShiny} 
+            handlerSprite={handlerSprite} 
+            spriteEspalda={spriteEspalda} 
+            handlerNextPokemon={handlerNextPokemon} 
+            handlerPreviousPokemon={handlerPreviousPokemon} 
+          />
+          <Divisor />
+          <PanelDerecho 
+            pokemon={pokemon} 
+            handlerNavigate={handlerNavigate} 
+          />
+        </div>
+      } />
+      <Route path="/entrenadores" element={
+        <div className="pokedex">
+          <Entrenadores 
+          
+          />
+        </div>
+      } />
+    </Routes>
   );
 }
 
-export default App;
+function AppWrapper() {
+  return (
+    <Router>
+      <App />
+    </Router>
+  );
+}
+
+export default AppWrapper;
