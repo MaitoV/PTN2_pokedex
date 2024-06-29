@@ -44,7 +44,7 @@ function App() {
   }, [pokemonID]);
 
   if (loading) {
-    return <p>Loading...</p>; 
+    return <p>Cargando...</p>; 
   }
 
   if (error) {
@@ -82,13 +82,13 @@ function App() {
             esShiny={esShiny} 
             handlerSprite={handlerSprite} 
             spriteEspalda={spriteEspalda} 
-            handlerNextPokemon={handlerNextPokemon} 
-            handlerPreviousPokemon={handlerPreviousPokemon} 
           />
           <Divisor />
           <PanelDerecho 
             pokemon={pokemon} 
-            handlerNavigate={handlerNavigate} 
+            handlerNavigate={handlerNavigate}
+            handlerNextPokemon={handlerNextPokemon}
+            handlerPreviousPokemon={handlerPreviousPokemon} 
           />
         </div>
       } />

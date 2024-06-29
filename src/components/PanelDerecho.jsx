@@ -1,8 +1,9 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import BotonNavigate from './BotonNavigate';
+import BotonGrande from './BotonGrande';
 
-function PanelDerecho({pokemon, handlerNavigate}) {
+function PanelDerecho({pokemon, handlerNavigate, handlerNextPokemon, handlerPreviousPokemon }) {
   const estadisticas = pokemon.estadisticas;
   const tipos = pokemon.tipos;
   const navigate = useNavigate();
@@ -52,11 +53,14 @@ function PanelDerecho({pokemon, handlerNavigate}) {
               <p className='pantalla'> Snorlak</p>
             </div>
           </div>
-          <div className="panel__fila"></div>
           <div className="panel__fila">
-          <BotonNavigate 
-        handlerNavigate={handlerNavigate}/>
-      </div>
+              <BotonNavigate 
+            handlerNavigate={handlerNavigate}/>
+          </div>
+         <div className="panel__fila controles">
+            <BotonGrande handler={handlerPreviousPokemon}  />
+            <BotonGrande handler={handlerNextPokemon} />
+         </div>
 
       </section>
     )

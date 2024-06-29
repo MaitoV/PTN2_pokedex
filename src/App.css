@@ -236,3 +236,40 @@ button:active {
   flex-direction: column;
   flex: 1;
 }
+.panel__fila:last-child {
+  border-top: groove #757575 3px;
+}
+.boton--grande {
+  outline-style: double;
+  outline-color: #460f0f;
+  outline-offset: 2px;
+  outline-width: 3px;
+  padding: 5px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: outset rgb(248, 187, 187) 6px;
+  transform: rotate(60deg);
+  background: radial-gradient(circle farthest-corner at 40% 25%, rgb(218, 237, 241) 9%, rgb(124, 214, 237) 20%, rgb(64, 90, 165) 62%, rgb(43, 125, 196) 100%);
+}
+.boton--grande:hover {
+  background: radial-gradient(
+      circle farthest-corner at 40% 25%,
+      rgb(233, 241, 218) 9%,
+      rgb(184, 237, 124) 20%,
+      rgb(64, 165, 106) 62%,
+      rgb(43, 196, 145) 100%
+  );
+}
+.boton--grande:active {
+  background: radial-gradient(
+      circle farthest-corner at 40% 25%,
+      rgb(229, 255, 181) 9%,
+      rgb(204, 237, 124) 20%,
+      rgb(103, 165, 64) 62%,
+      rgb(66, 204, 40) 100%
+  );
+}
+.controles {
+  display: flex;
+}
