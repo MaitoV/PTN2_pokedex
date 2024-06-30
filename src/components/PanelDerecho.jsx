@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import BotonNavigate from './BotonNavigate';
 import BotonGrande from './BotonGrande';
+import BotonEspecial from './BotonEspecial';
 
 function PanelDerecho({pokemon, handlerNavigate, handlerNextPokemon, handlerPreviousPokemon }) {
   const estadisticas = pokemon.estadisticas;
@@ -54,11 +55,11 @@ function PanelDerecho({pokemon, handlerNavigate, handlerNextPokemon, handlerPrev
             </div>
           </div>
           <div className="panel__fila">
-              <BotonNavigate 
-            handlerNavigate={handlerNavigate}/>
+             
           </div>
          <div className="panel__fila controles">
             <BotonGrande handler={handlerPreviousPokemon}  />
+            <BotonEspecial nombre="elige tu entrenador" handler={handlerNavigate} />
             <BotonGrande handler={handlerNextPokemon} />
          </div>
 
