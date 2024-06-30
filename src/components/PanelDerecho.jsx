@@ -1,12 +1,13 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import BotonNavigate from './BotonNavigate';
 import BotonGrande from './BotonGrande';
 import BotonEspecial from './BotonEspecial';
+import SpritePequeño from './SpritePequeño';
 
 function PanelDerecho({pokemon, handlerNavigate, handlerNextPokemon, handlerPreviousPokemon }) {
   const estadisticas = pokemon.estadisticas;
   const tipos = pokemon.tipos;
+  const evoluciones = pokemon.evoluciones;
   const navigate = useNavigate();
 
   const goToEntrenadores = () => {
@@ -38,21 +39,9 @@ function PanelDerecho({pokemon, handlerNavigate, handlerNextPokemon, handlerPrev
             </div>
           </div>
           <div className="panel__fila sprites__pequenios">
-            <div>
-              <h2>I</h2>
-              <img alt="pokemon" src="" className="pokemon__sprite pokemon__sprite--pequenio"></img>
-              <p className='pantalla'> Bulbasur</p>
-            </div>
-            <div>
-              <h2>II</h2>
-              <img alt="pokemon" src="" className="pokemon__sprite pokemon__sprite--pequenio"></img>
-              <p className='pantalla'> Charizard</p>
-            </div>
-            <div>
-              <h2>III</h2>
-              <img alt="pokemon" src="" className="pokemon__sprite pokemon__sprite--pequenio"></img>
-              <p className='pantalla'> Snorlak</p>
-            </div>
+            <SpritePequeño posicion="I" nombre={evoluciones[0].nombre} sprite={evoluciones[0].sprite}/>
+            <SpritePequeño posicion="II" nombre={evoluciones[1].nombre} sprite={evoluciones[1].sprite}/>
+            <SpritePequeño posicion="III" nombre={evoluciones[2].nombre} sprite={evoluciones[2].sprite}/>
           </div>
           <div className="panel__fila">
              

@@ -24,14 +24,21 @@ function App() {
       setError(null);
       const respuesta = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`);
       const data = respuesta.data;
-      const pokemon = { id: data.id, nombre: data.name, sprites: data.sprites, tipos: data.types, estadisticas: data.stats };
-      setPokemon(pokemon);
+      const pokemon = { id: data.id, nombre: data.name, sprites: data.sprites, tipos: data.types, estadisticas: data.stats, evoluciones: [] };
 
       const obtenerEspecies = await axios.get(data.species.url);
       const especiesData = obtenerEspecies.data;
       const textoDescripcion = especiesData.flavor_text_entries.find(entry => entry.language.name === 'es');
       const descripcionFormateada = textoDescripcion ? textoDescripcion.flavor_text : 'Descripción no disponible.';
       setDescripcion(descripcionFormateada);
+
+      const obtenerCadenaEvolutiva = await axios.get(especiesData.evolution_chain.url);
+      const cadenaEvolutiva = obtenerCadenaEvolutiva.data.chain;
+      const evoluciones = obtenerEvoluciones(cadenaEvolutiva);
+      const spriteEvoluciones = await obtenerSpriteEvolucion(evoluciones);
+      pokemon.evoluciones = spriteEvoluciones;
+
+      setPokemon(pokemon);
     } catch (error) {
       console.error("Error al obtener un pokemon", error);
       setError(error);
@@ -39,6 +46,33 @@ function App() {
       setLoading(false);
     }
   };
+
+  const obtenerEvoluciones = (cadena) => {
+    let evoluciones = [];
+    let cadenaActual = cadena;
+
+    while (cadenaActual) {
+      evoluciones.push({
+        id: cadenaActual.species.url.split('/').slice(-2, -1)[0],
+        nombre: cadenaActual.species.name
+      });
+      cadenaActual = cadenaActual.evolves_to[0];
+    }
+
+    return evoluciones;
+  };
+  const obtenerSpriteEvolucion = async (evoluciones) => {
+    const evolucionesData = [];
+    for (const evolucion of evoluciones) {
+      const evolucionData = await axios.get(`https://pokeapi.co/api/v2/pokemon/${evolucion.id}`);
+      const evolucionSprites = evolucionData.data.sprites.front_default;
+      evolucionesData.push({
+        nombre: evolucion.nombre,
+        sprite: evolucionSprites
+      });
+    }
+    return evolucionesData;
+  }
 
   useEffect(() => {
     fetchPokemon(pokemonID);
