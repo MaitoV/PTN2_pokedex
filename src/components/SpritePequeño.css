@@ -1,7 +1,12 @@
+.sprites__pequenios {
+    display: flex;
+    column-gap: 3px;
+    row-gap: 3px;
+    justify-content: space-between;
+}
 .pokemon__sprite {
     width: 100%;
     display: flex;
-    image-rendering: pixelated;
     border: inset #9aa28b 3px;
     border-radius: 5px;
     margin: 10px 0;
@@ -11,17 +16,12 @@
 .pokemon__sprite__pequenio {
   height: 180px;
   width: 180px;
-}
-.sprites__pequenios {
-  display: flex;
-  column-gap: 3px;
-  row-gap: 3px;
-  justify-content: space-between;
+  image-rendering: pixelated;
 }
 .sprites__pequenios > div {
-  width: 120px;
+    width: 120px;
 }
-.sprites__pequenios > div > h2 {
+.sprites__pequenios > div > h3 {
   font-size: 15px;
   margin-top: 2px;
   text-align: center;

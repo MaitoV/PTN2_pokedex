@@ -3,4 +3,8 @@
     justify-content: space-around;
     align-items: center;
     margin-bottom: 10px;
-  }
+}
+.panel__fila.controles {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}

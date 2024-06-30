@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import BotonGrande from './BotonGrande';
 import BotonEspecial from './BotonEspecial';
 import SpritePequeño from './SpritePequeño';
+import Tipos from './Tipos';
+import './Controles.css';
 
 function PanelDerecho({ pokemon, handlerNavigate, handlerNextPokemon, handlerPreviousPokemon, entrenadorSeleccionado  }) {
   const [selectedTrainer, setSelectedTrainer] = useState(null);
@@ -10,7 +12,6 @@ function PanelDerecho({ pokemon, handlerNavigate, handlerNextPokemon, handlerPre
   const tipos = pokemon.tipos;
   const evoluciones = pokemon.evoluciones;
   const navigate = useNavigate();
-
   const goToEntrenadores = () => {
     navigate('/entrenadores');
   };
@@ -28,44 +29,46 @@ function PanelDerecho({ pokemon, handlerNavigate, handlerNextPokemon, handlerPre
             )
           }
         </div>
-        <div className='tipo'>
-          <h2 className='tipo__titulo'>Tipos</h2>
-          <div className='tipo__lista'>
-            {
-              tipos.map((tipo) =>
-                <p className='tipo' key={tipo.type.name}>{tipo.type.name}</p>
-              )
-            }
-          </div>
+        <Tipos tipos ={tipos} />
+      </div>
+      <div>
+        <h2 className="titulo__evolucion  titulo--destacado">Evoluciones</h2>
+        <div className="sprites__pequenios">
+          {evoluciones[0] && (
+            <SpritePequeño posicion="I" nombre={evoluciones[0].nombre} sprite={evoluciones[0].sprite} />
+          )}
+          {evoluciones[1] && (
+            <SpritePequeño posicion="II" nombre={evoluciones[1].nombre} sprite={evoluciones[1].sprite} />
+          )}
+          {evoluciones[2] && (
+            <SpritePequeño posicion="III" nombre={evoluciones[2].nombre} sprite={evoluciones[2].sprite} />
+          )}
         </div>
-      </div>
-      <div className="panel__fila sprites__pequenios">
-        {evoluciones[0] && (
-          <SpritePequeño posicion="I" nombre={evoluciones[0].nombre} sprite={evoluciones[0].sprite} />
-        )}
-        {evoluciones[1] && (
-          <SpritePequeño posicion="II" nombre={evoluciones[1].nombre} sprite={evoluciones[1].sprite} />
-        )}
-        {evoluciones[2] && (
-          <SpritePequeño posicion="III" nombre={evoluciones[2].nombre} sprite={evoluciones[2].sprite} />
-        )}
-      </div>
-      <div className="panel__fila">
-
       </div>
       <div className="panel__fila controles">
         <BotonGrande handler={handlerPreviousPokemon} />
         <BotonEspecial nombre="elige tu entrenador" handler={handlerNavigate} />
         <BotonGrande handler={handlerNextPokemon} />
       </div>
-
-      {entrenadorSeleccionado && (
-          <div className='entrenador'>
-            <p className="entrenador__nombre">{entrenadorSeleccionado.nombre}</p>
-            <img src={entrenadorSeleccionado.imagen} alt={entrenadorSeleccionado.nombre} className='entrenador__imagen' />
-            
-          </div>
-        )}
+      <div>
+          <h2 className="titulo__evolucion  titulo--destacado">Entrenador</h2>
+          {entrenadorSeleccionado && (
+            <div className='entrenador__elegido'>
+              <img src={entrenadorSeleccionado.imagen} alt={entrenadorSeleccionado.nombre} className='entrenador__imagen' />
+              <p className='pantalla entrenador__nombre'>{entrenadorSeleccionado.nombre}</p>
+              <ul className='listado__medallas'>
+              {entrenadorSeleccionado.medallas.map((medalla, index) => (
+                    <li key={index}>
+                      <img className='medalla' 
+                        src={`/assets/medallas/${medalla}.png`} 
+                        alt={`Medalla ${index + 1}`} 
+                      />
+                    </li>
+                  ))}
+              </ul>
+            </div>
+          )}
+      </div>
 
     </section>
   )

@@ -32,6 +32,7 @@ body {
     display: flex;
 }
 .panel {
+    overflow: hidden;
     width: 359px;
     padding: 10px;
     border: inset #b31818 3px;
@@ -47,10 +48,6 @@ body {
     border-bottom: groove #757575 3px;
     display: flex;
     justify-content: space-evenly;
-}
-.panel__fila:last-child {
-    border-top: groove #757575 3px;
-    border-bottom: none;
 }
 .pokemon__nombre {
     font-family: "Archivo Narrow";
@@ -99,7 +96,9 @@ button:active {
   text-shadow: white -1px 1px;
 }
 .estadisticas {
-  width: 150px;
+  flex-grow: 2;
+  width: 100%;
+  max-width: 185px;
   margin: 5px;
 }
 .estadistica {
@@ -131,52 +130,50 @@ button:active {
   display: flex;
   
 }
-.tipo {
-  color: rgba(0, 0, 0, 0.9);
-    text-transform: capitalize;
-    font-size: 1.25em;
-    padding: 2px;
-    margin: 2px;
-    border: groove #757575 3px;
-    border-radius: 10px;
-    width: 150px;
-    text-align: center;
-    letter-spacing: 2px;
-    text-shadow: rgba(255, 255, 255, 0.3) -1px 1px;
-    align-self: center;
-    background: linear-gradient(
-        15deg,
-        rgba(128, 128, 128, 0.5) 64%,
-        rgba(138, 138, 138, 0.5) 70%,
-        rgba(230, 230, 230, 0.5) 81%,
-        rgba(255, 255, 255, 0.5) 86%,
-        rgba(220, 220, 220, 0.5) 89%,
-        rgba(230, 230, 230, 0.5) 100%
-    );
-    background-blend-mode: hard-light;
+.titulo--destacado {
+  margin-block-start: 0px;
+  margin-block-end: 0px;
+  text-align: center;
+  font-weight: 600;
+  letter-spacing: 10px;
+  text-transform: uppercase;
+  font-size: 18px;
+  padding: 5px;
+  letter-spacing: 2px;
+  background: linear-gradient(14deg, #460f0f 0, #891313 30%, #b31818 45%, #fd5555 65%, #b31818 95%);
+  border: groove #e61515 3px;
+  border-width: 3px 2px;
+  text-shadow: #fd5555 -1px 1px;
 }
-.tipo__titulo {
-    margin-block-start: 0px;
-    margin-block-end: 0px;
-    margin: 0px;
-    text-transform: capitalize;
-    font-size: 18px;
-    padding: 5px;
-    letter-spacing: 2px;
+.entrenador__elegido {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-row: auto auto;
+}
+.entrenador__elegido .entrenador__nombre {
+  grid-column: 2;
+  grid-row: 1;
+  height: min-content;
+}
+.entrenador__elegido .entrenador__imagen {
+    height: 100px;
+    grid-row: 1 / 3;
     display: flex;
-    justify-content: center;
     align-items: center;
-    background: linear-gradient(14deg, #460f0f 0, #891313 30%, #b31818 45%, #fd5555 65%, #b31818 95%);
-    border: groove #e61515 3px;
-    border-width: 3px 2px;
-    text-shadow: #fd5555 -1px 1px;
+    justify-content: center;
 }
-.tipo__lista {
+.listado__medallas {
+  list-style: none;
   display: flex;
-  flex-direction: column;
-  flex: 1;
+  column-gap: 10px;
+  grid-column: 2;
+  grid-row: 2;
+  margin-block-start: 0;
+  padding-inline-start: 0;
+  margin-block-end: 0;
 }
-.panel__fila:last-child {
-  border-top: groove #757575 3px;
+.medalla {
+  width: 35px;
 }
+
 

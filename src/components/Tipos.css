@@ -1,0 +1,40 @@
+.tipo {
+      height: 100%;
+      color: rgba(0, 0, 0, 0.9);
+      font-size: 1.25em;
+      border: groove #757575 3px;
+      border-radius: 10px;
+      flex-grow: 1;
+      text-align: center;
+      letter-spacing: 2px;
+      text-shadow: rgba(255, 255, 255, 0.3) -1px 1px;
+      align-self: center;
+      background: linear-gradient(
+          15deg,
+          rgba(128, 128, 128, 0.5) 64%,
+          rgba(138, 138, 138, 0.5) 70%,
+          rgba(230, 230, 230, 0.5) 81%,
+          rgba(255, 255, 255, 0.5) 86%,
+          rgba(220, 220, 220, 0.5) 89%,
+          rgba(230, 230, 230, 0.5) 100%
+      );
+      background-blend-mode: hard-light;
+  }
+  .tipo__lista {
+    padding: 5px;
+    margin-block-start: 0;
+    padding-inline-start: 0;
+    list-style: none;
+    display: flex;
+    row-gap: 5px;
+    flex-direction: column;
+  }
+  .tipo__item {
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.9);
+    text-transform: uppercase;
+    text-align: center;
+    border-radius: 10px;
+    border: groove #757575 3px;
+    text-shadow: rgba(255, 255, 255, 0.3) -1px 1px;
+  }
