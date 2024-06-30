@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {} from 'react';
 import { useNavigate } from 'react-router-dom';
 import BotonGrande from './BotonGrande';
 import BotonEspecial from './BotonEspecial';
@@ -7,14 +7,11 @@ import Tipos from './Tipos';
 import './Controles.css';
 
 function PanelDerecho({ pokemon, handlerNavigate, handlerNextPokemon, handlerPreviousPokemon, entrenadorSeleccionado  }) {
-  const [selectedTrainer, setSelectedTrainer] = useState(null);
   const estadisticas = pokemon.estadisticas;
   const tipos = pokemon.tipos;
   const evoluciones = pokemon.evoluciones;
-  const navigate = useNavigate();
-  const goToEntrenadores = () => {
-    navigate('/entrenadores');
-  };
+  
+
   return (
     <section className="panel">
       <div className="panel__fila">
