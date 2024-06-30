@@ -5,7 +5,6 @@ import BotonEspecial from './BotonEspecial';
 import SpritePequeño from './SpritePequeño';
 
 function PanelDerecho({ pokemon, handlerNavigate, handlerNextPokemon, handlerPreviousPokemon, entrenadorSeleccionado  }) {
-  const [selectedTrainer, setSelectedTrainer] = useState(null);
   const estadisticas = pokemon.estadisticas;
   const tipos = pokemon.tipos;
   const evoluciones = pokemon.evoluciones;

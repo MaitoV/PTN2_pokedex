@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import entrenadorAlan from './../assets/imagenes/entrenador-alan.png';
 import entrenadorGuido from './../assets/imagenes/entrenador-guido.png';
 import entrenadorMaite from './../assets/imagenes/entrenador-maite.png';
