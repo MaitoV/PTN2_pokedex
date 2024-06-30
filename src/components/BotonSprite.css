@@ -1,0 +1,19 @@
+.boton__sprite {
+    height: 40px;
+    width: 40px;
+    border: groove grey 3px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    padding: 1px;
+    border-color: #b06868;
+    background-color: #BE3144;
+}
+.boton__sprite .icono__sprite {
+    width: 20px;
+}
+.boton__sprite:hover {
+    border-color: #b8ed7c;
+}

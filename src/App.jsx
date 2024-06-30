@@ -2,10 +2,11 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
 import Divisor from './components/Divisor';
-import PanelIzquierdo from './components/PanelIzq';
+import PanelIzquierdo from './components/PanelIzquierdo';
 import PanelDerecho from './components/PanelDerecho';
 import axios from 'axios';
 import Entrenadores from './components/Entrenadores';
+import animacionPikachu from './assets/pikachu-corriendo.gif';
 
 function App() {
   const [pokemon, setPokemon] = useState(null);
@@ -44,8 +45,12 @@ function App() {
   }, [pokemonID]);
 
   if (loading) {
-    return <p>Cargando...</p>; 
-  }
+    return (
+    <div className='pantalla__carga'>
+      <img className='animacion__carga' src={animacionPikachu} alt="pikachu corriendo"></img>
+      <h1>Cargando...</h1>
+    </div>
+  )}; 
 
   if (error) {
     return <p>Error al cargar el Pokémon. Por favor, intenta de nuevo.</p>;

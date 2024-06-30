@@ -14,6 +14,14 @@ body {
   place-items: center;
   height: 100vh;
 }
+.pantalla__carga {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.animacion__carga {
+  width: 150px;
+}
 .pokedex {
     max-width: 848px;
     background-color: #e61515;
@@ -131,41 +139,9 @@ body {
   margin-top: 2px;
   text-align: center;
 }
-.controles__sprite {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 10px;
-}
 button:active {
   box-shadow: 0 5px #666;
   transform: translateY(4px);
-}
-.boton__control {
-  height: 40px;
-  width: 40px;
-  border: groove grey 3px;
-  border-radius: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: black;
-  padding: 1px;
-  border-color: #b06868;
-  background-color: #BE3144;
-}
-.boton__control .icono__sprite {
-  width: 20px;
-}
-.boton__control:hover {
-  border-color: #b8ed7c;
-}
-.boton__control--shiny {
-  transform: rotate(0);
-  text-transform: uppercase;
-  background: rgb(255,175,69);
-  background: radial-gradient(circle, rgba(255,175,69,1) 0%, rgba(249,214,137,1) 100%);
-  width: 90px;
-  text-shadow: white -1px 1px;
 }
 .boton__control--entrenadores {
   height: 40px;
@@ -239,37 +215,13 @@ button:active {
 .panel__fila:last-child {
   border-top: groove #757575 3px;
 }
-.boton--grande {
-  outline-style: double;
-  outline-color: #460f0f;
-  outline-offset: 2px;
-  outline-width: 3px;
-  padding: 5px;
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  border: outset rgb(248, 187, 187) 6px;
-  transform: rotate(60deg);
-  background: radial-gradient(circle farthest-corner at 40% 25%, rgb(218, 237, 241) 9%, rgb(124, 214, 237) 20%, rgb(64, 90, 165) 62%, rgb(43, 125, 196) 100%);
-}
-.boton--grande:hover {
-  background: radial-gradient(
-      circle farthest-corner at 40% 25%,
-      rgb(233, 241, 218) 9%,
-      rgb(184, 237, 124) 20%,
-      rgb(64, 165, 106) 62%,
-      rgb(43, 196, 145) 100%
-  );
-}
-.boton--grande:active {
-  background: radial-gradient(
-      circle farthest-corner at 40% 25%,
-      rgb(229, 255, 181) 9%,
-      rgb(204, 237, 124) 20%,
-      rgb(103, 165, 64) 62%,
-      rgb(66, 204, 40) 100%
-  );
+.controles__sprite {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 10px;
 }
 .controles {
+  justify-content: space-around;
+  margin-bottom: 10px;
   display: flex;
 }

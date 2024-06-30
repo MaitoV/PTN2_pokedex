@@ -1,5 +1,5 @@
 import React from 'react';
-import BotonesSprite from './BotonSprite';
+import BotonesSprite from './ControlSprite';
 import PokemonDescripcion from './PokemonDescripcion';
 import PokemonNombre from './PokemonNombre';
 

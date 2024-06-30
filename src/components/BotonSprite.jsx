@@ -1,16 +1,9 @@
-import iconoDeshacer from './../assets/deshacer-flecha.png';
-import iconoFemenino from './../assets/signo-femenino.png';
+import './BotonSprite.css';
 
-
-function BotonesSprite({handlerShiny, handlerSprite}) {
-    
-    return(
-        <div className="controles__sprite">
-            <button className="boton__control"><img className='icono__sprite' alt='deshacer' src={iconoFemenino} /></button>
-            <button className="boton__control boton__control--shiny" onClick={handlerShiny}>shiny</button>
-            <button className="boton__control"><img className='icono__sprite' alt='deshacer' src={iconoDeshacer} onClick={handlerSprite} /></button>
-        </div>
+function BotonSprite ({icono, handler}) {
+    return (
+        <button className="boton__sprite"><img className='icono__sprite' alt='deshacer' src={icono} onClick={handler}/></button>
     )
 }
 
-export default BotonesSprite;
+export default BotonSprite;
