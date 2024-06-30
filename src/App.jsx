@@ -16,6 +16,7 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [pokemonID, setPokemonID] = useState(1);
+  const [entrenadorSeleccionado, setEntrenadorSeleccionado] = useState(null);
   const navigate = useNavigate();
 
   const fetchPokemon = async (id) => {
@@ -128,14 +129,13 @@ function App() {
             handlerNavigate={handlerNavigate}
             handlerNextPokemon={handlerNextPokemon}
             handlerPreviousPokemon={handlerPreviousPokemon} 
+            entrenadorSeleccionado={entrenadorSeleccionado}
           />
         </div>
       } />
-      <Route path="/entrenadores" element={
+         <Route path="/entrenadores" element={
         <div className="pokedex">
-          <Entrenadores 
-          
-          />
+          <Entrenadores entrenadorSeleccionado={setEntrenadorSeleccionado} />
         </div>
       } />
     </Routes>
