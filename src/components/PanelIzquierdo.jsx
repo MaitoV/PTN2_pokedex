@@ -1,5 +1,5 @@
 import React from 'react';
-import BotonesSprite from './ControlSprite';
+import ControlSprite from './ControlSprite';
 import PokemonDescripcion from './PokemonDescripcion';
 import PokemonNombre from './PokemonNombre';
 
@@ -10,7 +10,7 @@ function PanelIzquierdo({ pokemon, descripcion, handlerShiny, esShiny, handlerSp
     <section className="panel">
       <PokemonNombre pokemonNombre={pokemon.nombre} pokemonID={pokemon.id} />
       <img alt={pokemon.nombre} src={imagenUrl} className="pokemon__sprite" />
-      <BotonesSprite 
+      <ControlSprite 
         handlerShiny={handlerShiny} 
         handlerSprite={handlerSprite} 
       />

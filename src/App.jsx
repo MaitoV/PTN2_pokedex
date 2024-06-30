@@ -6,7 +6,7 @@ import PanelIzquierdo from './components/PanelIzquierdo';
 import PanelDerecho from './components/PanelDerecho';
 import axios from 'axios';
 import Entrenadores from './components/Entrenadores';
-import animacionPikachu from './assets/pikachu-corriendo.gif';
+import animacionPikachu from './assets/imagenes/pikachu-corriendo.gif';
 
 function App() {
   const [pokemon, setPokemon] = useState(null);
@@ -46,7 +46,7 @@ function App() {
       setLoading(false);
     }
   };
-
+  
   const obtenerEvoluciones = (cadena) => {
     let evoluciones = [];
     let cadenaActual = cadena;

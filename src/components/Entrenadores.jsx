@@ -1,7 +1,7 @@
 import React from 'react';
-import entrenadorAlan from './../assets/entrenador-alan.png';
-import entrenadorGuido from './../assets/entrenador-guido.png';
-import entrenadorMaite from './../assets/entrenador-maite.png';
+import entrenadorAlan from './../assets/imagenes/entrenador-alan.png';
+import entrenadorGuido from './../assets/imagenes/entrenador-guido.png';
+import entrenadorMaite from './../assets/imagenes/entrenador-maite.png';
 
 function Entrenadores() {
   return (
