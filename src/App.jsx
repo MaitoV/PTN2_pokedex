@@ -13,6 +13,8 @@ function App() {
   const [descripcion, setDescripcion] = useState('');
   const [esShiny, setEsShiny] = useState(false);
   const [spriteEspalda, setSpriteEspalda] = useState(false);
+  const [spriteFemenino, setSpriteFemenino] = useState(false);
+  const [femeninoDisponible, setFemeninoDisponible] = useState(true);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [pokemonID, setPokemonID] = useState(1);
@@ -23,6 +25,7 @@ function App() {
     try {
       setLoading(true);
       setError(null);
+      setFemeninoDisponible(true);
       const respuesta = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`);
       const data = respuesta.data;
       const pokemon = { id: data.id, nombre: data.name, sprites: data.sprites, tipos: data.types, estadisticas: data.stats, evoluciones: [] };
@@ -62,6 +65,7 @@ function App() {
 
     return evoluciones;
   };
+
   const obtenerSpriteEvolucion = async (evoluciones) => {
     const evolucionesData = [];
     for (const evolucion of evoluciones) {
@@ -99,6 +103,15 @@ function App() {
     setSpriteEspalda(!spriteEspalda);
   };
 
+  const handlerSpriteFemenino = () => {
+    if (pokemon.sprites.front_female || pokemon.sprites.back_female) {
+      setSpriteFemenino(!spriteFemenino);
+    } else {
+      setFemeninoDisponible(false);
+      setTimeout(() => setFemeninoDisponible(true), 3000); 
+    }
+  };
+
   const handlerNextPokemon = () => {
     setPokemonID((prevID) => (prevID === 898 ? 1 : prevID + 1));
   };
@@ -122,6 +135,9 @@ function App() {
             esShiny={esShiny} 
             handlerSprite={handlerSprite} 
             spriteEspalda={spriteEspalda} 
+            handlerSpriteFemenino={handlerSpriteFemenino} 
+            spriteFemenino={spriteFemenino} 
+            femeninoDisponible={femeninoDisponible}
           />
           <Divisor />
           <PanelDerecho 

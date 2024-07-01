@@ -11,6 +11,12 @@
     border-color: #b06868;
     background-color: #BE3144;
 }
+
+.boton__sprite.activo {
+    border-radius: 5px;
+    border: 2px solid #b8ed7c;
+   
+}
 .boton__sprite .icono__sprite {
     width: 20px;
 }

@@ -1,4 +1,4 @@
-.boton__sprite--shiny {
+.boton__sprite-shiny {
     transform: rotate(0);
     text-transform: uppercase;
     background: rgb(255,175,69);
@@ -7,4 +7,10 @@
     width: min-content;
     text-shadow: white -1px 1px;
     padding: 5px 15px;
+    border-radius: 30px; 
 }
+
+.boton__sprite-shiny.activo {
+    border: 2px solid #b8ed7c;
+    border-radius: 5px; 
+  }
