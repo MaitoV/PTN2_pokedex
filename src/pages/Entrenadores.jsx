@@ -17,12 +17,12 @@ function Entrenadores({entrenadorSeleccionado}) {
     <section className='entrenadores'>
         <h2 className='titulo--destacado'>ENTRENADORES</h2>
           <div className="sprites__entrenadores">
-          <div onClick={() => seleccionarEntrenador({ nombre: 'Maite', imagen: entrenadorMaite, medallas: ['medalla1', 'medalla2', 'medalla3'] })}>
+          <div className='entrenador__box' onClick={() => seleccionarEntrenador({ nombre: 'Maite', imagen: entrenadorMaite, medallas: ['medalla1', 'medalla2', 'medalla3'] })}>
             <h2 className='entrenador__numero'>I</h2>
             <img alt="pokemon" src={entrenadorMaite} className="pokemon__sprite pokemon__sprite--pequenio" />
             <p className='pantalla'> Maite</p>
           </div>
-          <div onClick={() => seleccionarEntrenador({ nombre: 'Alan', imagen: entrenadorAlan, medallas: ['medalla1'] })}>
+          <div className='entrenador__box' onClick={() => seleccionarEntrenador({ nombre: 'Alan', imagen: entrenadorAlan, medallas: ['medalla1'] })}>
             <h2 className='entrenador__numero'>II</h2>
             <img alt="pokemon" src={entrenadorAlan} className="pokemon__sprite pokemon__sprite--pequenio" />
             <p className='pantalla'> Alan</p>

@@ -2,7 +2,6 @@ import './Tipos.css';
 import ColoresTipos from './../utils/Colorestipos';
 
 function Tipos ({ tipos }) {
-    console.log(tipos[0].type.name)
     return (
         <div className='tipo'>
             <h2 className='titulo--destacado'>Tipos</h2>

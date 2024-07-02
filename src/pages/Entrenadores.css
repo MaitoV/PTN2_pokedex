@@ -10,3 +10,9 @@
 .entrenador__numero {
     text-align: center;
 }
+.entrenador__box:hover img {
+    border: 3px solid rgb(255,175,69);
+}
+.entrenador__box:hover p {
+    border: 3px solid rgb(255,175,69);
+}
