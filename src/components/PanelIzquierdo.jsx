@@ -24,9 +24,11 @@ function PanelIzquierdo({ pokemon, descripcion, handlerShiny, esShiny, handlerSp
     <section className="panel">
       <PokemonNombre pokemonNombre={pokemon.nombre} pokemonID={pokemon.id} />
       {femeninoDisponible ? (
-        <img alt={pokemon.nombre} src={imagenUrl} className="pokemon__sprite" />
+        <img alt={pokemon.nombre} src={imagenUrl} className="pokemon__sprite sprite__principal" />
       ) : (
-        <p className="pokemon__sprite">Error, no hay imágenes del pokemón en su género femenino</p>
+        <div className="pokemon__sprite sprite__principal error__sprite">
+          <p>Error, no hay imágenes del pokemón en su género femenino</p>
+        </div>
       )}
       <ControlSprite 
         handlerShiny={handlerShiny} 
