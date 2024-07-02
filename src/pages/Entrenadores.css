@@ -1,0 +1,12 @@
+.entrenadores .titulo--destacado {
+    font-size: 24px;
+}
+.sprites__entrenadores {
+    display: flex;
+    column-gap: 18px;
+    row-gap: 5px;
+    justify-content: space-between;
+}
+.entrenador__numero {
+    text-align: center;
+}

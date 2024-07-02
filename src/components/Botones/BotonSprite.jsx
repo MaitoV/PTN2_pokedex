@@ -1,5 +1,5 @@
 import './BotonSprite.css';
-import reproducirSonido from '../utils/reproducirSonidos';
+import reproducirSonido from '../../utils/reproducirSonidos';
 
 function BotonSprite ({ icono, handler, activo }) {
     const ejecutarAlClickear = () => {

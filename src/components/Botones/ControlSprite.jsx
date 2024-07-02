@@ -1,7 +1,7 @@
 import React from 'react';
 import BotonSprite from './BotonSprite';
-import iconoDeshacer from './../assets/imagenes/deshacer-flecha.png';
-import iconoFemenino from './../assets/imagenes/signo-femenino.png';
+import iconoDeshacer from './../../assets/imagenes/deshacer-flecha.png';
+import iconoFemenino from './../../assets/imagenes/signo-femenino.png';
 import BotonEspecial from './BotonEspecial';
 import './Controles.css';
 

@@ -105,21 +105,6 @@ button:active {
   width: 140px;
   text-shadow: white -1px 1px;
 }
-.estadisticas {
-  flex-grow: 2;
-  width: 100%;
-  max-width: 185px;
-  margin: 5px;
-}
-.estadistica {
-  display: flex;
-}
-.estadistica__separador {
-  word-spacing: 5px;
-  font-size: 60px;
-  flex: 1 1 auto;
-  border-bottom: 1px dotted black;
-}
 .entrenador__imagen{
   background: linear-gradient(90deg, rgba(131,180,255,1) 39%, rgba(160,222,255,1) 73%, rgba(202,244,255,1) 98%);
   border: inset #DFF5FF 3px;

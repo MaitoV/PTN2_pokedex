@@ -1,10 +1,9 @@
 import React, {} from 'react';
-
-import BotonGrande from './BotonGrande';
-import BotonEspecial from './BotonEspecial';
-import SpritePequeño from './SpritePequeño';
+import Evoluciones from './Evoluciones';
+import Estadisticas from './Estadisticas';
+import BotonGrande from './Botones/BotonGrande';
+import BotonEspecial from './Botones/BotonEspecial';
 import Tipos from './Tipos';
-import './Controles.css';
 
 function PanelDerecho({ pokemon, handlerNavigate, handlerProximoPokemon, handlerAnteriorPokemon, entrenadorSeleccionado  }) {
   const estadisticas = pokemon.estadisticas;
@@ -15,33 +14,10 @@ function PanelDerecho({ pokemon, handlerNavigate, handlerProximoPokemon, handler
   return (
     <section className="panel">
       <div className="panel__fila">
-        <div className='pantalla estadisticas'>
-          {
-            estadisticas.map((estaditisca) =>
-              <div key={estaditisca.stat.name} className='estadistica'>
-                <span>{estaditisca.stat.name}</span>
-                <span className='estadistica__separador'></span>
-                <span>{estaditisca.base_stat}</span>
-              </div>
-            )
-          }
-        </div>
+        <Estadisticas estadisticas={estadisticas}/>
         <Tipos tipos ={tipos} />
       </div>
-      <div>
-        <h2 className="titulo__evolucion  titulo--destacado">Evoluciones</h2>
-        <div className="sprites__pequenios">
-          {evoluciones[0] && (
-            <SpritePequeño posicion="I" nombre={evoluciones[0].nombre} sprite={evoluciones[0].sprite} />
-          )}
-          {evoluciones[1] && (
-            <SpritePequeño posicion="II" nombre={evoluciones[1].nombre} sprite={evoluciones[1].sprite} />
-          )}
-          {evoluciones[2] && (
-            <SpritePequeño posicion="III" nombre={evoluciones[2].nombre} sprite={evoluciones[2].sprite} />
-          )}
-        </div>
-      </div>
+      <Evoluciones evoluciones={evoluciones} />
       <div className="panel__fila controles">
         <BotonGrande handler={handlerAnteriorPokemon} />
         <BotonEspecial nombre="elige tu entrenador" handler={handlerNavigate} />

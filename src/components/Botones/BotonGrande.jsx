@@ -1,5 +1,5 @@
 import './BotonGrande.css';
-import reproducirSonido from './../utils/reproducirSonidos.js';
+import reproducirSonido from './../../utils/reproducirSonidos.js';
 
 function BotonGrande ({handler}) {
     const ejecutarAlClickear = () => {

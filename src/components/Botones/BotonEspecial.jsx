@@ -1,6 +1,6 @@
 import './BotonEspecial.css';
 import './BotonSprite.css';
-import reproducirSonido from '../utils/reproducirSonidos';
+import reproducirSonido from './../../utils/reproducirSonidos';
 
 function BotonEspecial({ nombre, handler, activo }) {
   const ejecutarAlClickear = () => {

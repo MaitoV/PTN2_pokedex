@@ -1,0 +1,15 @@
+.estadisticas {
+    flex-grow: 2;
+    width: 100%;
+    max-width: 185px;
+    margin: 5px;
+  }
+  .estadistica {
+    display: flex;
+  }
+  .estadistica__separador {
+    word-spacing: 5px;
+    font-size: 60px;
+    flex: 1 1 auto;
+    border-bottom: 1px dotted black;
+  }
