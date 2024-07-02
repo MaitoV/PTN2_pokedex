@@ -112,11 +112,11 @@ function App() {
     }
   };
 
-  const handlerNextPokemon = () => {
+  const handlerProximoPokemon = () => {
     setPokemonID((prevID) => (prevID === 898 ? 1 : prevID + 1));
   };
 
-  const handlerPreviousPokemon = () => {
+  const handlerAnteriorPokemon = () => {
     setPokemonID((prevID) => (prevID === 1 ? 898 : prevID - 1));
   };
 
@@ -143,8 +143,8 @@ function App() {
           <PanelDerecho 
             pokemon={pokemon} 
             handlerNavigate={handlerNavigate}
-            handlerNextPokemon={handlerNextPokemon}
-            handlerPreviousPokemon={handlerPreviousPokemon} 
+            handlerProximoPokemon={handlerProximoPokemon}
+            handlerAnteriorPokemon={handlerAnteriorPokemon} 
             entrenadorSeleccionado={entrenadorSeleccionado}
           />
         </div>

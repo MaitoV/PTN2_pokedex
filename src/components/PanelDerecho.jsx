@@ -1,12 +1,12 @@
 import React, {} from 'react';
-import { useNavigate } from 'react-router-dom';
+
 import BotonGrande from './BotonGrande';
 import BotonEspecial from './BotonEspecial';
 import SpritePequeño from './SpritePequeño';
 import Tipos from './Tipos';
 import './Controles.css';
 
-function PanelDerecho({ pokemon, handlerNavigate, handlerNextPokemon, handlerPreviousPokemon, entrenadorSeleccionado  }) {
+function PanelDerecho({ pokemon, handlerNavigate, handlerProximoPokemon, handlerAnteriorPokemon, entrenadorSeleccionado  }) {
   const estadisticas = pokemon.estadisticas;
   const tipos = pokemon.tipos;
   const evoluciones = pokemon.evoluciones;
@@ -43,9 +43,9 @@ function PanelDerecho({ pokemon, handlerNavigate, handlerNextPokemon, handlerPre
         </div>
       </div>
       <div className="panel__fila controles">
-        <BotonGrande handler={handlerPreviousPokemon} />
+        <BotonGrande handler={handlerAnteriorPokemon} />
         <BotonEspecial nombre="elige tu entrenador" handler={handlerNavigate} />
-        <BotonGrande handler={handlerNextPokemon} />
+        <BotonGrande handler={handlerProximoPokemon} />
       </div>
       <div>
           <h2 className="titulo__evolucion  titulo--destacado">Entrenador</h2>
