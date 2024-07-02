@@ -1,10 +1,11 @@
 .sprites__pequenios {
     display: flex;
-    column-gap: 3px;
+    column-gap: 6px;
     row-gap: 3px;
-    justify-content: space-between;
+    justify-content: start;
 }
 .pokemon__sprite {
+    padding: 0 4px;
     width: 100%;
     display: flex;
     border: inset #9aa28b 3px;
